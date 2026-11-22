@@ -1,0 +1,45 @@
+:root{--bg:#fffafb;--bg2:#ffe3ec;--pink:#ff8fb1;--deep:#e0457b;--ink:#5a2a3d;--card:#ffffff;--line:#ffc9da;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2b1320;--bg2:#4a1f35;--ink:#ffe9f0;--card:#3a1a2b;--line:#7a3552;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2b1320;--bg2:#4a1f35;--ink:#ffe9f0;--card:#3a1a2b;--line:#7a3552;color-scheme:dark}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%) fixed;color:var(--ink);font-family:"Be Vietnam Pro",system-ui,sans-serif;text-align:center;overflow-x:hidden}
+main{max-width:640px;margin:0 auto;padding:20px 18px 0;position:relative;z-index:2}
+h1{font-family:Pacifico,cursive;font-weight:400;font-size:clamp(1.9rem,8vw,3.2rem);margin:6px 0 6px;color:var(--deep);line-height:1.25;word-break:break-word}
+p{line-height:1.6;margin:6px 0}
+.hide{display:none!important}
+label{display:block;text-align:left;font-weight:600;margin:12px 0 4px}
+input[type=text],textarea{width:100%;font:inherit;padding:10px 14px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+button,.btn{font:inherit;font-weight:600;padding:10px 22px;border-radius:999px;border:0;background:var(--deep);color:#fff;cursor:pointer;display:inline-block;margin:6px 4px}
+button.alt,.btn.alt{background:var(--card);color:var(--deep);border:2px solid var(--pink)}
+button:active{transform:scale(.97)}
+:focus-visible{outline:3px solid var(--deep);outline-offset:2px}
+.box{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:16px;margin-top:14px}
+.note{font-size:.9rem;opacity:.8}
+#link{word-break:break-all;font-size:.85rem;background:var(--bg2);padding:8px;border-radius:10px;margin-top:8px}
+#cake{width:min(340px,86vw);height:auto;display:block;margin:4px auto 0}
+.flame{transform-origin:center bottom;transform-box:fill-box;animation:flick .5s ease-in-out infinite alternate;transition:opacity .4s}
+.flame:nth-child(2n){animation-duration:.38s}
+@keyframes flick{from{transform:scale(1) rotate(-3deg)}to{transform:scale(.9,1.12) rotate(3deg)}}
+.out .flame{opacity:0;animation:none}
+.smoke{opacity:0}
+.out .smoke{animation:smoke 2s ease-out forwards}
+@keyframes smoke{0%{opacity:.7;transform:translateY(0)}100%{opacity:0;transform:translateY(-40px)}}
+.meter{height:8px;width:min(260px,70%);margin:8px auto;background:var(--line);border-radius:99px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--deep);transition:width .1s}
+#after{opacity:0;transition:opacity 1.2s}
+.out #after{opacity:1}
+#letter{font-size:1.05rem;min-height:5em;white-space:pre-wrap;text-align:left;font-family:"Be Vietnam Pro",serif;line-height:1.8}
+#letter.typing::after{content:"|";color:var(--deep);animation:blink .7s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.polaroid{width:min(260px,72vw);margin:16px auto 6px;background:#fff;padding:12px 12px 40px;border-radius:6px;box-shadow:0 8px 24px rgba(224,69,123,.25);transform:rotate(-3deg);transition:transform .5s;position:relative;color:#5a2a3d}
+.polaroid .ph{aspect-ratio:1;background:linear-gradient(135deg,#ffd1de,#fff0f5);display:flex;align-items:center;justify-content:center;font-size:2.4rem;overflow:hidden}
+.polaroid img{width:100%;height:100%;object-fit:cover}
+.polaroid span{position:absolute;left:0;right:0;bottom:10px;font-family:Pacifico,cursive;font-size:1.05rem}
+#garden{position:relative;z-index:1;width:100%;max-width:900px;margin:-10px auto 0;display:block;height:auto}
+.fl{transform-box:fill-box;transform-origin:center bottom;transform:scale(0);transition:transform 1.3s cubic-bezier(.3,1.5,.5,1)}
+.bloom .fl{transform:scale(1)}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+@media (prefers-reduced-motion:reduce){.flame,.out .smoke{animation:none}.fl{transition:none}#letter.typing::after{animation:none}}

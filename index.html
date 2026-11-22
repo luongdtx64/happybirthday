@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chúc mừng sinh nhật</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Be+Vietnam+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="cf" aria-hidden="true"></canvas>
+<main>
+<section id="setup">
+  <h1>Tạo thiệp sinh nhật</h1>
+  <p>Điền tên và lời chúc, mỗi bạn sẽ có một đường link riêng.</p>
+  <div class="box">
+    <label for="n">Tên người nhận</label>
+    <input id="n" type="text" maxlength="30" placeholder="Ví dụ: Lan">
+    <label for="w">Lời chúc</label>
+    <textarea id="w" maxlength="300" placeholder="Để trống để dùng lời chúc mặc định"></textarea>
+    <label for="pics">Ảnh kỷ niệm (tối đa 6)</label>
+    <input id="pics" type="file" accept="image/*" multiple>
+    <p class="note">Ảnh chỉ hiện trên máy này, link không mang theo ảnh được. Để gửi ảnh cho bạn, hãy nhờ mình nhúng ảnh vào trang.</p>
+    <button id="make" type="button">Tạo link</button>
+    <button id="preview" class="alt" type="button">Xem thử</button>
+    <div id="out" class="hide"><div id="link"></div><button id="copy" type="button">Sao chép link</button></div>
+  </div>
+</section>
+
+<section id="gift" class="hide">
+  <h1 id="title">Chúc mừng sinh nhật!</h1>
+  <div id="start"><p>Có một món quà dành cho bạn.</p><button id="open" type="button">Mở quà</button></div>
+  <div id="stage" class="hide">
+    <svg id="cake" viewBox="0 0 360 330" role="img" aria-label="Bánh gato có năm cây nến">
+      <ellipse cx="180" cy="300" rx="165" ry="22" fill="#e9b3c5" opacity=".6"/>
+      <ellipse cx="180" cy="290" rx="160" ry="20" fill="#fff"/>
+      <rect x="40" y="215" width="280" height="75" fill="#ff8fb1"/>
+      <path d="M40 215h280v10c-10 0-10 22-22 22s-12-14-24-14-12 20-26 20-14-18-28-18-14 16-26 16-14-20-28-20-14 18-26 18-14-14-26-14-12 14-22 14V215z" fill="#fff"/>
+      <rect x="80" y="140" width="200" height="75" fill="#ffb3c9"/>
+      <path d="M80 140h200v10c-8 0-8 20-20 20s-12-12-22-12-12 18-24 18-12-16-24-16-12 14-24 14-12-18-22-18-10 12-18 12-10-10-16-10V140z" fill="#fff"/>
+      <ellipse cx="180" cy="140" rx="100" ry="14" fill="#fff"/>
+      <g fill="#e0457b"><circle cx="70" cy="262" r="6"/><circle cx="125" cy="270" r="6"/><circle cx="180" cy="266" r="6"/><circle cx="235" cy="270" r="6"/><circle cx="290" cy="262" r="6"/></g>
+      <g fill="#fff"><circle cx="100" cy="190" r="5"/><circle cx="180" cy="196" r="5"/><circle cx="260" cy="190" r="5"/></g>
+      <g id="candles"></g>
+    </svg>
+    <p id="hint">Hãy thổi vào micro để tắt nến.</p>
+    <div class="meter" id="meterbox"><i id="meter"></i></div>
+    <button id="tap" class="alt" type="button">Bấm để thổi nến</button>
+  </div>
+  <div id="after" class="hide">
+    <div class="box"><div id="letter"></div></div>
+    <div id="album">
+      <div class="polaroid" id="pol"><div class="ph" id="ph"></div><span id="cap"></span></div>
+      <button class="alt" id="prev" type="button" aria-label="Ảnh trước">‹</button>
+      <button class="alt" id="next" type="button" aria-label="Ảnh sau">›</button>
+    </div>
+    <button id="again" class="alt" type="button">Thắp lại nến</button>
+  </div>
+</section>
+</main>
+<svg id="garden" class="hide" viewBox="0 0 900 200" aria-hidden="true" preserveAspectRatio="xMidYMax meet"></svg>
+
+<script src="app.js"></script>
+</body>
+</html>
